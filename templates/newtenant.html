@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>New Tenant Registration</title>
+     {%load static%}
+     <link href={% static '/css/newtenant.css'%} rel="stylesheet" type="text/css"/>
+     <script type="text/javascript" src="{% static '/jQuery/js/jquery.min.js' %}"></script>
+
+<style type="text/css">
+    body{
+        background: url("{% static '/img/house.png' %}") no-repeat center fixed;
+        background-size: 100%;
+        height: auto;
+        width: auto;
+    }
+
+</style>
+</head>
+
+ <body>
+
+    <div class="form-style-5">
+<form id="new_tenant" method="post">{% csrf_token %}
+<fieldset>
+<legend><span class="number">1</span> Tenant Information</legend>
+    <input type="text" name="firstname" placeholder="First Name *" id="firstname"/>
+    <input type="text" name="secondname" placeholder="Second Name *" id="secondname"/>
+    <input type="text" name="occupation" placeholder="Occupation *" id="occupation"/>
+     <input type="email" name="email" placeholder="Your Email *" id="email"/>
+     <input type="text"  name="description" placeholder="About yourself" id="description"/>
+
+</fieldset>
+<fieldset>
+<legend><span class="number">2</span> Room Information</legend>
+    <label for="room_no">Room Number:</label>
+<select id="room_no" name="room_no">
+<optgroup>
+
+      {% for room in rooms %}
+
+     <option>  {{ room.roomno }}</option>
+
+     {% endfor %}
+</optgroup>
+</select>
+<input type="text" name="no_of_tenants" placeholder="No of tenant" id="no_of_tenants"/>
+
+</fieldset>
+<input type="submit" value="Submit" />
+</form>
+</div>
+
+
+  </body>
+
+<script type="text/javascript">
+    $(document).on('submit','#new_tenant',function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type:'POST',
+            url:'/newtenant/',
+            data:{
+                firstname:$('#firstname').val(),
+                secondname:$('#secondname').val(),
+                occupation:$('#occupation').val(),
+                email:$('#email').val(),
+                description:$('#description').val(),
+                roomnumber:$('#roomnumber').val(),
+                nooftenant:$('#nooftenant').val(),
+                csrfmiddlewaretoken:$('input[name =csrfmiddlewaretoken]').val()
+
+            },
+            success:function () {
+                alert("New tenant added successfully");
+
+            }
+
+
+                }
+        );
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room registration</title>
+    {%load static%}
+     <link href={% static '/css/newtenant.css'%} rel="stylesheet" type="text/css"/>
+     <script type="text/javascript" src="{% static '/jQuery/js/jquery.min.js' %}"></script>
+     <link href={% static '/css/bootstrap.css'%} rel="stylesheet" type="text/css"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href={% static '/css/font-awesome.css'%} rel="stylesheet" type="text/css"/>
+
+    <link href={% static '/css/custom.css'%} rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+  <div id="wrapper">
+       <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+
+                    <a href="/newtenant/">About Us</a>
+
+
+                </div>
+
+            </div>
+
+       </div>
+      <h2>{{ today }}</h2>
+        <div id="wrapper" class="form-style-5">
+              <form id="new_room">{% csrf_token %}
+               <fieldset>
+                    <input type="text" name="roomno" placeholder="Room No" id="roomno"/>
+                    <input type="text" name="floor" placeholder="Floor" id="floor"/>
+                    <input type="text" name="status" placeholder="Status" id="status"/>
+
+                </fieldset>
+                 <input type="submit" value="Submit" />
+
+              </form>
+        </div>
+  </div>
+</body>
+<script type="text/javascript">
+    $(document).on('submit','#new_room',function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type:'POST',
+            url:'/roomreg/',
+            data:{
+                roomno:$('#roomno').val(),
+                floor:$('#floor').val(),
+                status:$('#status').val(),
+                csrfmiddlewaretoken:$('input[name =csrfmiddlewaretoken]').val()
+
+            },
+            success:function () {
+                alert("Room added successfully");
+
+            }
+
+
+                }
+        );
+
+    });
+
+</script>
+</html>

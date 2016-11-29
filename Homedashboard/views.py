@@ -44,7 +44,8 @@ def index(request):
     context = {
         'freerooms': House.objects.all().filter(status='Free').count(),
         'takenrooms': House.objects.all().filter(status='Taken').count(),
-        'today':datetime.datetime.now().date()
+        'today':datetime.datetime.now().date(),
+        'categories': HouseCategory.objects.all()
 
     }
 
@@ -98,17 +99,25 @@ def tenant(request):
 
 # Adding rooms
 def roomregistration(request):
+    template = loader.get_template('roomregistration.html')
+    context = {
+        'categories': HouseCategory.objects.all()
+    }
     if request.method == 'POST':
         roomno = request.POST['roomno']
         floor = request.POST['floor']
         status = request.POST['status']
+        Housecategory=request.POST['category']
 
         House.objects.create(
             roomno=roomno,
             floor=floor,
-            status=status
+            status=status,
+            Housecategory = Housecategory
         )
-    return render(request, "roomregistration.html")
+
+
+    return HttpResponse(template.render(context, request))
 
 
 # Retrieving all rooms
@@ -124,9 +133,8 @@ def rooms(request):
 def category(request):
     template = loader.get_template('Category.html')
 
-
     context={
-        'category':HouseCategory.objects.all()
+        'categories': HouseCategory.objects.all()
     }
 
     return HttpResponse(template.render(context, request))

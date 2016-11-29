@@ -36,6 +36,20 @@
                     <input type="text" name="status" placeholder="Status" id="status"/>
 
                 </fieldset>
+
+                   <fieldset>
+                    <label for="category">House Category:</label>
+                    <select name="category" id="category">
+                      <optgroup>
+                          {% for cat in categories %}
+
+                         <option>  {{ cat.category }}</option>
+
+                         {% endfor %}
+                    </optgroup>
+                    </select>
+                </fieldset>
+
                  <input type="submit" value="Submit" />
 
               </form>
@@ -53,6 +67,7 @@
                 roomno:$('#roomno').val(),
                 floor:$('#floor').val(),
                 status:$('#status').val(),
+                category:$('#category').val(),
                 csrfmiddlewaretoken:$('input[name =csrfmiddlewaretoken]').val()
 
             },

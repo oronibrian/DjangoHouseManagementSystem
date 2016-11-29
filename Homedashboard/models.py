@@ -6,10 +6,21 @@ from django.db import models
 from django.db.models import Model
 
 
+class HouseCategory(models.Model):
+    category = models.CharField(max_length=155)
+    price = models.IntegerField()
+
+    def __str__(self):
+        return self.category
+
+    class Meta:
+        verbose_name_plural ='HouseCategories'
+
 class House(models.Model):
     roomno = models.IntegerField(primary_key=True)
     floor = models.CharField(max_length=32)
     status = models.TextField()
+    Housecategory = models.ForeignKey(HouseCategory)
 
 
     def __str__(self):
@@ -31,15 +42,6 @@ class Tenant(models.Model):
 
 
 
-class HouseCategory(models.Model):
-    category = models.CharField(max_length=155)
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.category
-
-    class Meta:
-        verbose_name_plural ='HouseCategories'
 
 
 

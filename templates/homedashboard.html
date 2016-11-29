@@ -15,25 +15,31 @@
 
 </head>
 <body>
-    <div id="wrapper">
+        <div id="wrapper">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
                 <div class="navbar-header">
-
-                    <a href="/logout/">Logout</a>
-                    <h2>{{ today }}</h2>
-
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"> <h2>{{ today }}</h2></a></li>
+                        <li> <a href="/logout/">Logout</a></li>
+                    </ul>
                 </div>
 
             </div>
-
         </div>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li class="text-center user-image-back">
-                        <img src="{% static '/img/house.png' %}" class="img-responsive" />
+                        <img src="{% static '/img/house2.jpg' %}" class="img-responsive" />
                      
                     </li>
                     <li>
@@ -57,6 +63,10 @@
                         <a href="#"><i class="fa fa-sitemap "></i>House<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
+                                <a href="/category/">House Category</a>
+                            </li>
+
+                            <li>
                                 <a href="/roomreg/">Room Registration</a>
                             </li>
                             <li>
@@ -71,7 +81,7 @@
                         <a href="#"><i class="fa fa-edit "></i>Billing Service<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Water Bill</a>
+                                <a href="/invoice/">Create Invoice</a>
                             </li>
                             <li>
                                 <a href="#">Rental Bill</a>

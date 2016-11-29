@@ -6,7 +6,7 @@ from django.db import models
 from django.db.models import Model
 
 
-class Room(models.Model):
+class House(models.Model):
     roomno = models.IntegerField(primary_key=True)
     floor = models.CharField(max_length=32)
     status = models.TextField()
@@ -14,6 +14,7 @@ class Room(models.Model):
 
     def __str__(self):
         return self.status
+
 
 
 class Tenant(models.Model):
@@ -27,6 +28,18 @@ class Tenant(models.Model):
 
     def __str__(self):
         return self.firstname
+
+
+
+class HouseCategory(models.Model):
+    category = models.CharField(max_length=155)
+    price = models.IntegerField()
+
+    def __str__(self):
+        return self.category
+
+    class Meta:
+        verbose_name_plural ='HouseCategories'
 
 
 

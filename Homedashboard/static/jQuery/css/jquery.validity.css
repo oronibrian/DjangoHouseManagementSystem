@@ -14,18 +14,17 @@ label.error {
     -webkit-border-radius: 4px;
 }
 */
-label.error { 
-    color:#fff; 
-    margin-left:2px;     
-    background-image:url('arrow.gif');
-    background-position:left center;
-    background-repeat:no-repeat;
-    padding:2px;
-    padding-left:18px;
-    -moz-border-radius:4px;
+label.error {
+    color: #fff;
+    margin-left: 2px;
+    background-image: url('arrow.gif');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 2px;
+    padding-left: 18px;
+    -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
-
 
 /*
  * Styles used by the modal output mode.
@@ -33,20 +32,21 @@ label.error {
  * and '.validity-modal-msg:hover' is applied to suggest 
  * to the user that the boxes are clickable.
  */
-.validity-modal-msg { 
-    position:absolute; 
-	margin-top:8px;
-    z-index:99999; 
-    background-color:#F00; 
-	color:#FFF;
-    border:solid 1px #000; 
-    padding:1px;
-    cursor:pointer; 
+.validity-modal-msg {
+    position: absolute;
+    margin-top: 8px;
+    z-index: 99999;
+    background-color: #F00;
+    color: #FFF;
+    border: solid 1px #000;
+    padding: 1px;
+    cursor: pointer;
     font-size: 16px;
 }
-.validity-modal-msg:hover { 
-    background-color:#c0c0c0; 
-	color:#F00;
+
+.validity-modal-msg:hover {
+    background-color: #c0c0c0;
+    color: #F00;
 }
 
 /*
@@ -56,6 +56,19 @@ label.error {
  * an extra bit of text (or anything really) that explains what the summary is.
  * '.validity-erroneous' is applied to every input that fails.
  */
-.validity-summary-container { display:none; border: 1px solid red; background-color: #F5E79E; margin: 0; padding: 0px; }
-.validity-summary-output ul { background-color: red; color: #00A23F; }
-.validity-erroneous { border:solid 1px #f56600 !important; }
+.validity-summary-container {
+    display: none;
+    border: 1px solid red;
+    background-color: #F5E79E;
+    margin: 0;
+    padding: 0px;
+}
+
+.validity-summary-output ul {
+    background-color: red;
+    color: #00A23F;
+}
+
+.validity-erroneous {
+    border: solid 1px #f56600 !important;
+}

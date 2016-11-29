@@ -5,7 +5,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
 from django.contrib.auth.decorators import login_required
-from Homedashboard.models import Room, Tenant
+from Homedashboard.models import House, Tenant,HouseCategory
 from .forms import UserLoginForm
 
 
@@ -42,8 +42,8 @@ def logout_view(request):
 def index(request):
     template = loader.get_template('homedashboard.html')
     context = {
-        'freerooms': Room.objects.all().filter(status='Free').count(),
-        'takenrooms': Room.objects.all().filter(status='Taken').count(),
+        'freerooms': House.objects.all().filter(status='Free').count(),
+        'takenrooms': House.objects.all().filter(status='Taken').count(),
         'today':datetime.datetime.now().date()
 
     }
@@ -59,7 +59,7 @@ def newtenant(request):
     # This loads the room numbers to the dropdown list
     template = loader.get_template('newtenant.html')
     context = {
-        'rooms': Room.objects.all()
+        'rooms': House.objects.all().filter(status='Free')
     }
 
     # Submiting information to the database
@@ -103,7 +103,7 @@ def roomregistration(request):
         floor = request.POST['floor']
         status = request.POST['status']
 
-        Room.objects.create(
+        House.objects.create(
             roomno=roomno,
             floor=floor,
             status=status
@@ -115,9 +115,27 @@ def roomregistration(request):
 def rooms(request):
     template = loader.get_template('rooms.html')
     context = {
-        'rooms': Room.objects.all()
+        'rooms': House.objects.all()
     }
     return HttpResponse(template.render(context, request))
+
+
+
+def category(request):
+    template = loader.get_template('Category.html')
+
+
+    context={
+        'category':HouseCategory.objects.all()
+    }
+
+    return HttpResponse(template.render(context, request))
+
+
+
+
+def invoice(request):
+    return render(request,'Invoice.html')
 
 
 

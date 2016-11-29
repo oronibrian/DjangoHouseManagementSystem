@@ -26,7 +26,11 @@ urlpatterns = [
     url(r'^newtenant/$', views.newtenant,name="newtenant"),
     url(r'^roomreg/$', views.roomregistration,name="roomreg"),
     url(r'^rooms/$', views.rooms,name="rooms"),
+    url(r'^invoice/$', views.invoice, name="invoice"),
     url(r'^$', login_view,name="login"),
     url(r'^logout/$', logout_view, name="logout"),
+    url(r'^category/$', views.category, name="category"),
+
+
 
 ]

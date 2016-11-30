@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(House)
 admin.site.register(Tenant)
 admin.site.register(HouseCategory)
+admin.site.register(Price)

@@ -8,7 +8,7 @@ from django.db.models import Model
 
 class HouseCategory(models.Model):
     category = models.CharField(max_length=155)
-    price = models.IntegerField()
+
 
     def __str__(self):
         return self.category
@@ -16,11 +16,19 @@ class HouseCategory(models.Model):
     class Meta:
         verbose_name_plural ='HouseCategories'
 
+class Price(models.Model):
+    price = models.IntegerField()
+    category = models.ForeignKey(HouseCategory, default=6000)
+
+    def __unicode__(self):
+      return str(self.price)
+
+
 class House(models.Model):
     roomno = models.IntegerField(primary_key=True)
     floor = models.CharField(max_length=32)
     status = models.TextField()
-    Housecategory = models.ForeignKey(HouseCategory)
+    category = models.ForeignKey(HouseCategory,default=6000)
 
 
     def __str__(self):

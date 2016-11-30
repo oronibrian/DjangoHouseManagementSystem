@@ -107,13 +107,17 @@ def roomregistration(request):
         roomno = request.POST['roomno']
         floor = request.POST['floor']
         status = request.POST['status']
-        Housecategory=request.POST['category']
+        housecategory=request.POST['category']
+
+        HouseCategory.objects.create(
+            category=housecategory
+        )
 
         House.objects.create(
             roomno=roomno,
             floor=floor,
-            status=status,
-            Housecategory = Housecategory
+            status=status
+
         )
 
 
@@ -140,7 +144,14 @@ def category(request):
     return HttpResponse(template.render(context, request))
 
 
+def price(request):
+    template = loader.get_template('Category.html')
 
+    context = {
+        'categories': HouseCategory.objects.all()
+    }
+
+    return HttpResponse(template.render(context, request))
 
 def invoice(request):
     return render(request,'Invoice.html')

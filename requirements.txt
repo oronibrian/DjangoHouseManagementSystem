@@ -10,7 +10,7 @@ configglue==1.1.2
 configobj==5.0.6
 cryptography==1.2.3
 cycler==0.9.0
-debtags==2.0
+debtags
 decorator==4.0.10
 defer==1.0.6
 dirspec==13.10

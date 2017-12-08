@@ -12,7 +12,7 @@ cryptography==1.2.3
 cycler==0.9.0
 decorator==4.0.10
 defer==1.0.4
-dirspec==13.10
+dirspec
 dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.10

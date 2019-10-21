@@ -28,7 +28,7 @@ django-treebeard==4.0.1
 django-widgy==0.8.4
 djangorestframework==3.5.1
 duplicity==0.7.6
-ecdsa==0.13
+ecdsa==0.13.3
 enum34==1.1.2
 et-xmlfile==1.0.1
 ez-setup==0.9

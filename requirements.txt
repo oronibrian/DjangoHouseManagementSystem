@@ -134,7 +134,7 @@ trytond-product==3.8.0
 trytond-stock==3.8.1
 Twisted==16.0.0
 Unipath==1.0
-urllib3==1.19
+urllib3==1.26.5
 uTidylib==0.2
 vboxapi==1.0
 virtualenv==15.0.3

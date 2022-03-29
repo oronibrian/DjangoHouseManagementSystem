@@ -65,7 +65,7 @@ oneconf==0.3.9
 openpyxl==2.3.1
 PAM==0.4.2
 pandas==0.19.0
-paramiko==1.16.0
+paramiko==2.10.1
 pathlib==1.0.1
 pathlib2==2.1.0
 pbr==1.10.0

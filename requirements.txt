@@ -92,7 +92,7 @@ PyJWT==1.3.0
 pyOpenSSL==0.15.1
 pyparsing==2.0.3
 pyparted==3.10.7
-PyPDF2==1.23
+PyPDF2==1.27.5
 pyScss==1.3.5
 pyserial==3.0.1
 pysmbc==1.0.15.5

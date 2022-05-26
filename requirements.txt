@@ -132,7 +132,7 @@ trytond-currency==3.8.0
 trytond-party==3.8.1
 trytond-product==3.8.0
 trytond-stock==3.8.1
-Twisted==16.0.0
+Twisted==22.4.0
 Unipath==1.0
 urllib3==1.19
 uTidylib==0.2

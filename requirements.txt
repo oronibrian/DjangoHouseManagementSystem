@@ -109,7 +109,7 @@ pyxdg==0.25
 PyYAML==3.11
 rcssmin==1.0.6
 relatorio==0.6.2
-reportlab==3.3.0
+reportlab==3.5.55
 requests==2.7.0
 rjsmin==1.0.12
 scikit-learn==0.18.1

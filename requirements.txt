@@ -37,7 +37,7 @@ future==0.16.0
 Genshi==0.7
 gunicorn==19.4.1
 gyp==0.1
-html5lib==0.9999999
+html5lib==0.999999999
 httplib2==0.9.1
 idna==2.0
 ipaddr==2.1.11
